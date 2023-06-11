@@ -9,4 +9,5 @@ import org.springframework.stereotype.Repository;
 @EnableJpaRepositories
 @Repository
 public interface CustomerInvoiceHeaderRepo extends JpaRepository<CustomerInvoiceHeader,String> {
+
 }

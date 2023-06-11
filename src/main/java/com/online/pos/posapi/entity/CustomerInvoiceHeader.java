@@ -5,12 +5,11 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.util.Date;
+import java.util.List;
 
-@Entity(name="customer_invoice_detail_table")
+@Entity(name="customer_invoice_header_table")
 @Getter
 @Setter
 @AllArgsConstructor
@@ -26,10 +25,13 @@ public class CustomerInvoiceHeader {
     @Column(name="net_Total")
     private double netTotal;
     @Column(name="paytype_1")
-    private double paytype1;
+    private String paytype1;
     @Column(name="paytype_2")
-    private double  paytype2;
+    private String  paytype2;
     private double  balance;
+
+    @OneToMany(mappedBy = "customerInvoiceHeader",cascade = CascadeType.ALL)
+    private List<CustomerInvoiceDetail> invoiceDetailList;
 
 
 }

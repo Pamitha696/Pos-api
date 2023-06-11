@@ -1,5 +1,6 @@
 package com.online.pos.posapi.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -30,7 +31,9 @@ public class Product {
     private int qty;
     @Column(name="selling_price")
     private double sellingPrice;
+
      @OneToMany(mappedBy = "product_property_Id")
+     @JsonIgnore
     private List<CustomerInvoiceDetail> invoiceDetailList;
 
 }
